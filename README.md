@@ -1,4 +1,4 @@
-Asiastudy
+JLPTHelper
 =============
 
 Web service for JLPT preparing.  

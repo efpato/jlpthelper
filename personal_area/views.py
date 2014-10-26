@@ -1,6 +1,4 @@
-from django.shortcuts import render, render_to_response, HttpResponseRedirect, RequestContext
-from django.contrib import auth
-
+from django.shortcuts import render_to_response, RequestContext
 from personal_area.forms import UserForm, UserProfileForm
 
 
