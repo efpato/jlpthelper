@@ -1,0 +1,222 @@
+body            {
+                    background: url(images/bg.gif);
+                    background-repeat: repeat;
+                    width: 1052px;
+                    font-family: Verdana, Helvetica, sans-serif;
+                    margin: 0px auto;
+                }
+
+#main           {
+                    background-color: whitesmoke;
+                    width:100%;
+                }
+
+#header         {
+                    width:100%;
+                    height:183px;
+                    background-image: url(images/header.gif);
+                    background-repeat: no-repeat;
+                }
+
+/* MENU description  start*/
+
+#menu_gor       {
+                    width:100%;
+                    height: 60px;
+                    top: 69px;
+                    position: relative;
+                }
+
+ul.menu         {
+                    float: right;
+                    margin: 0;
+                    padding: 0;
+                    display: inline-block;
+                    background-color: #2b2b2b;
+                    background-repeat: no-repeat;
+                    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#f5fbd6), to(#f9fce8));
+                    background-image: -webkit-linear-gradient(#f5fbd6, #f9fce8);
+                    background-image: -moz-linear-gradient(top, #f5fbd6, #f9fce8);
+                    background-image: -ms-linear-gradient(#f5fbd6, #f9fce8);
+                    background-image: -o-linear-gradient(#f5fbd6, #f9fce8);
+                    background-image: linear-gradient(#f5fbd6, #f5fbd6);
+                    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f5fbd6', endColorstr='#f9fce8', GradientType=0);
+                    width: 600px;
+                    list-style: none;
+
+                }
+
+ul.menu li      {
+                    float: left;
+                    list-style: none;
+                    border-right: 1px solid black;
+                    position: relative;
+                }
+
+ul.menu li a    {
+                    color: black;
+                    display: block;
+                    font-family: Vrinda;
+                    font-size: 18px;
+                    padding: 8px 20px 10px;
+                    text-decoration: none;
+}
+
+ul.menu li a:hover {
+	background-color: #f5fbd6;
+}
+
+ul.menu li:first-child a:hover {
+}
+/*Выпадающее меню*/
+
+ul.menu li ul {
+    padding: 0px;
+	margin-left: 0px;
+	display: none;
+}
+
+ul.menu li:hover ul {
+	display: block;
+	position: absolute;
+	top: 34px;
+	background-color: #f5fbd6;
+	z-index: 1000;
+	list-style: none;
+}
+
+ul.menu li:hover ul li {
+	list-style: none;
+	float: none;
+	width: 150px;
+	border-right: none;
+}
+
+ul.menu li:hover ul li a {
+	border-bottom: 1px solid black;
+	border-right: none;
+	padding: 6px 20px 8px;
+}
+
+ul.menu li:hover ul li a:hover {
+	background-color: transparent;
+	color: #c1deff;
+}
+
+ul.menu li:hover ul li:first-child a:hover {
+}
+/* MENU description  end*/
+
+#user           {
+                    width:20%;
+                    float:left;
+                    border: black;
+                }
+
+.content, .kanjies_text
+                {
+                    width:80%;
+                    float:right;
+                    margin-top: 10px;
+                    margin-bottom: 10px;
+                }
+
+.kanjies_text   {
+                }
+
+#footer         {
+                    clear:both;
+                    width:100%;
+                    position: relative;
+                    margin-top: -150px; /* negative value of footer height */
+                    height: 120px;
+                    background-image: url(images/footer.gif);
+                    background-repeat: no-repeat;
+                }
+
+.contact        {
+                }
+
+
+a, h1, h2       { color: red;
+                }
+h1, h2          { font-family: Verdana, serif;
+                    margin: 2;
+                    font-weight: normal;
+                }
+h1              { border-bottom: 2px solid #eee;
+                  font-size: 20px;
+                }
+h2              { font-size: 1.2em; }
+
+
+
+
+#page           {
+                    background: white;
+                }
+
+
+#allcontent     {
+                  width:            1px;
+                  padding-top:      5px;
+                  padding-bottom:   5px;
+                  margin-right:     auto;
+                  margin-left:      auto;
+                }
+
+/* Стиль для выделения иероглифов по уровням*/
+span.highlight {
+    color: #FFFFFF;
+    background-color: #0000CD;
+    }
+
+.entries        {
+                    list-style: none;
+                    margin: 0;
+                    padding: 0;
+                }
+.entries li     { margin: 10px; }
+.entries li h2  { margin-left: 10px; }
+
+.add-entry      { font-size: 1em; border-bottom: 1px solid #ccc;
+                }
+.add-entry textarea {
+                  background-color: #fffff0;
+                  font-size: 1em;
+                  border-bottom: 1px solid #ccc;;
+                  border-right: 1px solid #ccc;;
+                }
+
+.metanav        { text-align: right; font-size: 0.8em; padding: 0.3em;
+                  margin-bottom: 1em; background: white; }
+
+.flash          { background: white; padding: 0.5em;
+                  border: 1px solid #AACBE2; }
+
+.error          { background: #F0D6D6; padding: 0.5em; }
+
+/* Описание кнопок */
+
+.myButton {
+	background-color:#EDF8B5;
+	border:1px solid #e65f44;
+	display:inline-block;
+	cursor:pointer;
+	color:#c92200;
+	font-family:Verdana;
+	font-size:16px;
+	padding:10px 20px;
+	text-decoration:none;
+    width: 100px;
+    margin-left:auto;
+    margin-right:auto;
+}
+.myButton:hover {
+	background-color:#ffffff;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
+

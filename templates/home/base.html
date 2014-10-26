@@ -1,0 +1,25 @@
+ {% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta http-equiv="content-type" content="text/html" charset="utf-8">
+    <title>JLPT Helper</title>
+    <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" type="image/png"/>
+    <link rel=stylesheet type=text/css href="{% static 'home/style.css' %}">
+    <link rel=stylesheet type=text/css href="{% static 'kanji_analyzer/style.css' %}">
+</head>
+<body>
+<div id="main">
+    <div id="header">
+        {% include 'home/menu.html' %}
+    </div>
+{#  тут будет формироваться лишь главная контентная часть  #}
+    <div id="content">
+        {% block body %} {% endblock %}
+    </div>
+    <a href="register/">Register Here</a>
+    {% block auth %}{% endblock %}
+    {% include 'home/footer.html' %}
+ </div>
+</body>
+</html>
