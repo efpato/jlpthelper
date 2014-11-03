@@ -1,19 +1,14 @@
 {% extends "home/base.html" %}
 
- {% block auth %}
-        <h1>Register with Rango</h1>
-
+{% block auth %}
+        TEST
         {% if registered %}
         Rango says: <strong>thank you for registering!</strong>
-        <a href="/personal_area/">Return to the homepage.</a><br />
+        <a href="/site_auth/">Return to the homepage.</a><br />
         {% else %}
         Rango says: <strong>register here!</strong><br />
-
-        <form id="user_form" method="POST" action="/personal_area/register/"
+        <form id="user_form" method="POST" action="/site_auth/register/"
                 enctype="multipart/form-data">
-
-            {% csrf_token %}
-
             {{ user_form.as_p }}
             {{ profile_form.as_p }}
 

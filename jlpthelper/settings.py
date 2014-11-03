@@ -43,7 +43,7 @@ INSTALLED_APPS = (
     'django.contrib.admindocs',
     'home',
     'kanji_analyzer',
-    'personal_area',
+    'site_auth',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -82,6 +82,8 @@ DATABASES = {
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
+
+LOGIN_URL = '/site_auth/login/'
 
 TIME_ZONE = 'UTC'
 

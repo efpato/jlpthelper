@@ -1,7 +1,6 @@
- {% load staticfiles %}
-<!DOCTYPE html>
+{% load staticfiles %}
 <html>
-<head lang="en">
+<head>
     <meta http-equiv="content-type" content="text/html" charset="utf-8">
     <title>JLPT Helper</title>
     <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" type="image/png"/>
@@ -9,19 +8,44 @@
     <link rel=stylesheet type=text/css href="{% static 'kanji_analyzer/style.css' %}">
 </head>
 <body>
-<div id="main">
-    <div id="header">
-        {% include 'home/menu.html' %}
-    </div>
-{#  тут будет формироваться лишь главная контентная часть  #}
-    <div id="content">
-        {% block body %} {% endblock %}
-    </div>
+    <div id="main">
+        {#HEADER#}
+        <div id="header"><h1>JLPT Helper</h1></div>
 
-    <a href="register/">Register Here</a>
-    {% block auth %}{% endblock %}
+        {#MENU#}
+        {#<div id="menu_gor">#}
+        {#    {% include 'home/menu.html' %}#}
+        {#</div>#}
 
-    {% include 'home/footer.html' %}
- </div>
+        {#    MAIN CONTENT#}
+        <div id="wrapper">
+            <div id="content">
+                <p>Вы находитесь на сайте, который поможет вам в подготовке к сдаче экзамена JLPT. На нашем сайте вы можете пройти тесты на любой из уровней, также имеются тесты, позволяющие оценить ваш уровень, по шкале экзамена JLPT. Для Вас есть создан ряд приложений, которые помогают в подготовке к экзамену. Итак, пора начинать подготовку и, как говорят японцы, がんばったね!</p>
+                {% block body %} {% endblock %}
+            </div>
+        </div>
+
+    {#USER INFORMATION#}
+        <div id="user">
+            <h1>Вход</h1>
+            {% if user.is_authenticated %}
+                <a href="/site_auth/restricted/">Restricted Page</a><br />
+                <a href="/site_auth/logout/">Logout</a><br />
+            {% else %}
+                <a href="/site_auth/register/">Register Here</a><br />
+                <a href="/site_auth/login/">Login</a><br />
+            {% endif %}
+                <a href="/site_auth/about/">About</a><br/>
+                <a href="/site_auth/add_category/">Add a New Category</a><br />
+        </div>
+
+    {#NEWS BLOCK#}
+        <div id="news">
+            <p>News will be here!</p>
+        </div>
+
+    {#FOOTER#}
+        {% include 'home/footer.html' %}
+    </div>
 </body>
 </html>

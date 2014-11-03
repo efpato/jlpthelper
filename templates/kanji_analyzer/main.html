@@ -1,6 +1,6 @@
 {% extends "home/base.html" %}
 {% load staticfiles %}
-{{% block body %}
+{% block body %}
 
 <h1 align="center">Analyzed text</h1>
     <form class="form" action="analyze" method="post">
@@ -14,4 +14,4 @@
         {% include "kanji_analyzer/show_results.html" %}
         {% endif %}
 </div>
-{% endblock %}}
+{% endblock %}

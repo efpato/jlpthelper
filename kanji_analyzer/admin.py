@@ -1,3 +1,3 @@
 from django.contrib import admin
 
-# Register your models here.
+# site_auth your models here.

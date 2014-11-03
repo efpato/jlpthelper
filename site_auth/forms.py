@@ -1,4 +1,4 @@
-from personal_area.models import UserProfile
+from site_auth.models import UserProfile
 from django.contrib.auth.models import User
 from django import forms
 
