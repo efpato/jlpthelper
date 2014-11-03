@@ -1,12 +1,11 @@
 {% extends "home/base.html" %}
 
 {% block test %}
-        <form id="login_form" method="post" action="/rango/login/">
-            {% csrf_token %}
-            Username: <input type="text" name="username" value="" size="50" />
-            <br />
-            Password: <input type="password" name="password" value="" size="50" />
-            <br />
-            <input type="submit" value="submit" />
-        </form>
+    <form id="login_form" method="post" action="/site_auth/login/">
+        Username: <input type="text" name="username" value="" size="50" />
+        <br />
+        Password: <input type="password" name="password" value="" size="50" />
+        <br />
+        <input type="submit" value="submit" />
+    </form>
 {% endblock %}

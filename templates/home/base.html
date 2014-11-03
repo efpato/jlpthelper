@@ -21,6 +21,11 @@
         <div id="wrapper">
             <div id="content">
                 <p>Вы находитесь на сайте, который поможет вам в подготовке к сдаче экзамена JLPT. На нашем сайте вы можете пройти тесты на любой из уровней, также имеются тесты, позволяющие оценить ваш уровень, по шкале экзамена JLPT. Для Вас есть создан ряд приложений, которые помогают в подготовке к экзамену. Итак, пора начинать подготовку и, как говорят японцы, がんばったね!</p>
+                {% if user.is_authenticated %}
+                <h1>Rango says... hello {{ user.username }}!</h1>
+                {% else %}
+                <h1>Rango says... hello world!</h1>
+                {% endif %}
                 {% block body %} {% endblock %}
             </div>
         </div>
@@ -35,8 +40,6 @@
                 <a href="/site_auth/register/">Register Here</a><br />
                 <a href="/site_auth/login/">Login</a><br />
             {% endif %}
-                <a href="/site_auth/about/">About</a><br/>
-                <a href="/site_auth/add_category/">Add a New Category</a><br />
         </div>
 
     {#NEWS BLOCK#}

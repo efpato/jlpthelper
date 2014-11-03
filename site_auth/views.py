@@ -38,7 +38,6 @@ def register(request):
     else:
         user_form = UserForm()
         profile_form = UserProfileForm()
-
     return render_to_response('site_auth/register.html',
                               {'user_form': user_form, 'profile_form': profile_form, 'registered': registered}, context)
 
