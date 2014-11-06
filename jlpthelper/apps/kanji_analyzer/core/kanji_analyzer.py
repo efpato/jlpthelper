@@ -1,12 +1,12 @@
-#!/usr/bin/python
-# coding=utf-8
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 
-from kanji_analyzer.logic_part.static_data_for_application import AnalyzerData
+from .static_data_for_application import AnalyzerData
 
 
 class KanjiesText:
     def __init__(self, value):
-        self.value = value
+        self._value = value
 
     @property
     def value(self):

@@ -1,5 +1,8 @@
+# -*- coding: utf-8 -*-
+
 from django.conf.urls import url
-from kanji_analyzer import views
+from . import views
+
 
 urlpatterns = [
     url(r'^$', views.start_kanji, name='start_kanji'),

@@ -3,7 +3,6 @@
 import os
 import django
 import sys
-from kanji_analyzer import models
 
 
 if __name__ == "__main__":

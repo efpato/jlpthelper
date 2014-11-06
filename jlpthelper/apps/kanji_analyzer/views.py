@@ -1,5 +1,7 @@
+# -*- coding: utf-8 -*-
+
 from django.shortcuts import render_to_response
-from kanji_analyzer.logic_part.kanji_analyzer import KanjiesText
+from .core.kanji_analyzer import KanjiesText
 
 
 def start_kanji(request):
@@ -10,8 +12,14 @@ def show_entries():
     global analyzed_text
     global list_of_percents
     global list_of_find_kanjies
-    return render_to_response('show_entries.html', {'analyzed_text': analyzed_text, 'list_of_percents': list_of_percents,
-                                                 'list_of_find_kanjies': list_of_find_kanjies,})
+    return render_to_response(
+        'show_entries.html',
+        {
+            'analyzed_text': analyzed_text,
+            'list_of_percents': list_of_percents,
+            'list_of_find_kanjies': list_of_find_kanjies
+        }
+    )
 
 
 def send_text(request):

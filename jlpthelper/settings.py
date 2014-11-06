@@ -39,7 +39,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.admin',
     'django.contrib.admindocs',
-    'kanji_analyzer',
+    'jlpthelper.apps.kanji_analyzer',
     'site_auth',
 )
 
