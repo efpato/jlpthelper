@@ -9,28 +9,35 @@
 </head>
 <body>
     <div id="main">
-        {#HEADER#}
+        {# HEADER #}
         <div id="header"><h1>JLPT Helper</h1></div>
 
-        {#MENU#}
+        {# MENU #}
         {#<div id="menu_gor">#}
         {#    {% include 'home/menu.html' %}#}
         {#</div>#}
 
-        {#    MAIN CONTENT#}
+        {# MAIN CONTENT #}
         <div id="wrapper">
             <div id="content">
-                <p>Вы находитесь на сайте, который поможет вам в подготовке к сдаче экзамена JLPT. На нашем сайте вы можете пройти тесты на любой из уровней, также имеются тесты, позволяющие оценить ваш уровень, по шкале экзамена JLPT. Для Вас есть создан ряд приложений, которые помогают в подготовке к экзамену. Итак, пора начинать подготовку и, как говорят японцы, がんばったね!</p>
+                <p>
+                    Вы находитесь на сайте, который поможет Вам в подготовке к сдаче экзамена JLPT.
+                    На нашем сайте Вы можете пройти тесты на любой из уровней.
+                    Также имеются тесты, позволяющие оценить Ваш уровень по шкале экзамена JLPT.
+                    Для Вас создан ряд приложений, которые помогают в подготовке к экзамену.
+                    Итак, пора начинать подготовку и, как говорят японцы, がんばったね!
+                </p>
+
                 {% if user.is_authenticated %}
-                <h1>Rango says... hello {{ user.username }}!</h1>
+                    <h1>Rango says... hello {{ user.username }}!</h1>
                 {% else %}
-                <h1>Rango says... hello world!</h1>
+                    <h1>Rango says... hello world!</h1>
                 {% endif %}
                 {% block body %} {% endblock %}
             </div>
         </div>
 
-    {#USER INFORMATION#}
+    {# USER INFORMATION #}
         <div id="user">
             <h1>Вход</h1>
             {% if user.is_authenticated %}
@@ -42,13 +49,13 @@
             {% endif %}
         </div>
 
-    {#NEWS BLOCK#}
+    {# NEWS BLOCK #}
         <div id="news">
             <p>News will be here!</p>
         </div>
 
-    {#FOOTER#}
-        {% include 'home/footer.html' %}
+    {# FOOTER #}
+        {% include 'footer.html' %}
     </div>
 </body>
 </html>

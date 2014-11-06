@@ -1,9 +1,10 @@
 #!/usr/bin/env python
+
 import os
 import django
 import sys
-from home import models
 from kanji_analyzer import models
+
 
 if __name__ == "__main__":
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "jlpthelper.settings")

@@ -10,9 +10,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 SECRET_KEY = 'xejs&+h_@t4qa$8ger2$@(00a3c-#8y^%)@ex0&2rc5r8$-e%n'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-TEMPLATE_DEBUG = True
+DEBUG = TEMPLATE_DEBUG = True
 
 TEMPLATE_DIRS = (
     BASE_DIR + '/templates/',
@@ -41,7 +39,6 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.admin',
     'django.contrib.admindocs',
-    'home',
     'kanji_analyzer',
     'site_auth',
 )
@@ -58,7 +55,6 @@ MIDDLEWARE_CLASSES = (
 
 AUTH_PROFILE_MODULE = 'accounts.UserProfile'
 
-
 ROOT_URLCONF = 'jlpthelper.urls'
 
 WSGI_APPLICATION = 'jlpthelper.wsgi.application'
@@ -66,17 +62,24 @@ WSGI_APPLICATION = 'jlpthelper.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-    'ENGINE': 'django.db.backends.postgresql_psycopg2',
-    'NAME': 'jlpthelper',
-    'USER': 'postgres',
-    'PASSWORD': '123',
-    'HOST': 'localhost', # Set to empty string for localhost.
-    'PORT': '',
+if DEBUG:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
     }
-}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': 'jlpthelper',
+            'USER': 'postgres',
+            'PASSWORD': '123',
+            'HOST': '',
+            'PORT': ''
+        }
+    }
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
@@ -100,6 +103,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.7/howto/images-files/
 
 STATIC_URL = '/static/'
+
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
 )
