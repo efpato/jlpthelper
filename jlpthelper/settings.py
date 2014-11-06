@@ -40,7 +40,6 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'django.contrib.admindocs',
     'jlpthelper.apps.kanji_analyzer',
-    'site_auth',
 )
 
 MIDDLEWARE_CLASSES = (
