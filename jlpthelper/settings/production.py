@@ -1,15 +1,15 @@
 import os
 
-BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+PROJECT_DIR = os.path.dirname(os.path.dirname(__file__))
 
-PROJECT_DIR = os.path.dirname(__file__)
+BASE_DIR = os.path.dirname(PROJECT_DIR)
 
 SECRET_KEY = 'xejs&+h_@t4qa$8ger2$@(00a3c-#8y^%)@ex0&2rc5r8$-e%n'
 
 DEBUG = TEMPLATE_DEBUG = False
 
 TEMPLATE_DIRS = (
-    os.path.join(PROJECT_DIR, 'templates'),
+    os.path.pardir(os.path.join(PROJECT_DIR, 'templates')),
 )
 
 TEMPLATE_LOADERS = (
