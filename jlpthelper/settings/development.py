@@ -17,7 +17,7 @@ TEMPLATE_LOADERS = (
     'django.template.loaders.app_directories.Loader',
 )
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = (
     'django.contrib.auth',
@@ -43,25 +43,12 @@ ROOT_URLCONF = 'jlpthelper.urls'
 
 WSGI_APPLICATION = 'jlpthelper.wsgi.application'
 
-
-if DEBUG:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
-else:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': 'jlpthelper',
-            'USER': 'postgres',
-            'PASSWORD': '123',
-            'HOST': '',
-            'PORT': ''
-        }
-    }
+}
 
 LANGUAGE_CODE = 'en-us'
 
