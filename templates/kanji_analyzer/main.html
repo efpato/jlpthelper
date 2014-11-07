@@ -1,8 +1,10 @@
-{% extends "base.html" %}
+{% extends 'index.html' %}
 
 {% load staticfiles %}
 
-{% block body %}
+{% block title %} | Kanji Analyzer{% endblock %}
+
+{% block content %}
     <h1 align="center">Analyzed text</h1>
 
     <form class="form" action="analyze" method="post">
@@ -12,9 +14,9 @@
         </div>
     </form>
 
-    <div class=page>
+    <div>
         {% if q %}
             {% include "kanji_analyzer/show_results.html" %}
         {% endif %}
-</div>
+    </div>
 {% endblock %}
