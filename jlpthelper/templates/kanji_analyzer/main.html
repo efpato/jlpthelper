@@ -1,0 +1,22 @@
+{% extends 'index.html' %}
+
+{% load staticfiles %}
+
+{% block title %} | Kanji Analyzer{% endblock %}
+
+{% block content %}
+    <h1 align="center">Analyzed text</h1>
+
+    <form class="form" action="analyze" method="post">
+        <div id="form">
+            <dd><textarea id="textarea" name="q" rows=5 cols=30 placeholder=" Input your text in japanese here ..."></textarea>
+            <dd><input class="myButton" type="submit" value="Analyze">
+        </div>
+    </form>
+
+    <div>
+        {% if q %}
+            {% include "kanji_analyzer/show_results.html" %}
+        {% endif %}
+    </div>
+{% endblock %}
