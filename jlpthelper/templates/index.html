@@ -68,10 +68,10 @@
 
   <div id="showcase" class="showcase">
     <div class="showcase-slide">
-      <div class="showcase-content"> <img src="../../static/style/images/art/s1-new.jpg" alt=""></div>
+      <div class="showcase-content"><a href="{% url 'home' %}"><img src="../../static/style/images/art/s1-new.jpg" alt=""></a> </div>
     </div>
     <div class="showcase-slide">
-      <div class="showcase-content"> <img src="../../static/style/images/art/s2-new.jpg" alt=""></div>
+      <div class="showcase-content"> <a href="{% url 'start_kanji' %}"><img src="../../static/style/images/art/s2-new.jpg" alt=""></a></div>
       <div class="showcase-caption">Приложение для анализа сложности текста.</div>
     </div>
   </div>
@@ -81,10 +81,10 @@
     {% block content %}
     <div class="two-third">
       <h3 class="line">Приложения</h3>
-      <a href="">
+      <a href="{% url 'start_kanji' %}">
         <img src="../../static/style/images/icon-1.png" alt="" class="left">
       </a>
-      <h4>Kanji analyzer</h4>
+      <h4><a href=" {% url 'start_kanji' %}">Kanji analyzer</a></h4>
       <p>Приложение, помогающее оценить сложность текста.</p>
       <div class="clear"></div>
     </div>
