@@ -1,22 +1,24 @@
 {% block results %}
-    <div id = "text_results">
-        <h1 align="center">Results</h1>
-        <ul class=entries>
-            <div id="analyzed_text">
-                <h3>{{ q }}</h3>
-            </div>
+    <h3 class="line">Результаты разбора текста</h3>
+    <div class="one-half">
+        <h1>Ваш текст:</h1>
+        <p>{{ q }}</p>
+    </div>
+
+    <div class="one-half last">
+            <h1> Графическое представление результатов: </h1>
             <div id = "progress">
                 {% for percents in list_of_percents %}
                     N{{ forloop.counter }}: {{ percents }}%
                     <progress max="100" value="{{ percents }}">N{{ forloop.counter }}</progress><br>
                 {% endfor %}
             </div>
-            <div id="list_of_kanjies">
-                <h2> List of kanjies: </h2>
-                {% for q in list_of_find_kanjies %}
-                    <h3>N{{ forloop.counter }}:{{ q }}</h3>
-                {% endfor %}
-            </div>
-        </ul>
+        <br>
+        <div id="list_of_kanjies">
+            <h1> Список иероглифов, встречающихся в тексте: </h1>
+            {% for q in list_of_find_kanjies %}
+                <p>N{{ forloop.counter }}:{{ q }}</p>
+            {% endfor %}
+        </div>
     </div>
 {% endblock %}

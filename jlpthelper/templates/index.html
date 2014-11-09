@@ -66,6 +66,7 @@
 <div id="body-wrapper">
   {% include 'partial/header.html' %}
 
+{% block content %}
   <div id="showcase" class="showcase">
     <div class="showcase-slide">
       <div class="showcase-content"><a href="{% url 'home' %}"><img src="../../static/style/images/art/s1-new.jpg" alt=""></a> </div>
@@ -75,10 +76,11 @@
       <div class="showcase-caption">Приложение для анализа сложности текста.</div>
     </div>
   </div>
+
   <div id="wrapper">
     <div class="intro">Все материалы для подготовки к JLPT на одном сайте.</div>
 
-    {% block content %}
+
     <div class="two-third">
       <h3 class="line">Приложения</h3>
       <a href="{% url 'start_kanji' %}">

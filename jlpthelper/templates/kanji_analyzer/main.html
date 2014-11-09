@@ -5,15 +5,25 @@
 {% block title %} | Kanji Analyzer{% endblock %}
 
 {% block content %}
-    <form class="form" action="analyze" method="post">
-        <div id="form">
-            <dd><textarea id="textarea" name="q" rows=5 cols=30 placeholder=" Input your text in japanese here ..."></textarea>
-            <dd><input class="myButton" type="submit" value="Analyze">
-        </div>
-    </form>
-    <div>
+    <div id="wrapper">
+    <h3 class="line"> Ваш текст </h3>
+    <div class="form-container">
+      <form class="forms" action="analyze" method="post">
+        <fieldset>
+            <ol>
+                <li class="button-row">
+                  <textarea name="q" class="text-area required"></textarea>
+                  <input type="submit" value="Анализировать" name="submit" class="btn-submit">
+                </li>
+            </ol>
+        </fieldset>
+      </form>
+        <div class="response"></div>
+    </div>
+    <br>
+    <br>
+    <br>
         {% if q %}
             {% include "kanji_analyzer/show_results.html" %}
         {% endif %}
-    </div>
 {% endblock %}
