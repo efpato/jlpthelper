@@ -98,7 +98,7 @@ input[type="submit"]:focus, input[type="button"]:focus {
 body {
 	background: transparent url(../images/bg.jpg) repeat;
 	font-family: Arial, Helvetica, sans-serif;
-	font-size: 12px;
+	font-size: 14px;
 	color: #848484;
 	background-attachment: fixed;
 	overflow-y: scroll;
@@ -261,7 +261,7 @@ iframe {
 	display: block;
 }
 
-a.button, .forms fieldset .btn-submit {
+a.button, .forms fieldset .btn-submit, .forms fieldset .btn-submit-right {
 	padding: 5px 25px;
 	text-align: center;
 	background: #9cc1e3 url(../images/button.png) repeat-x left center;
@@ -1465,6 +1465,11 @@ ol.commentlist li {
 	padding: 2px 25px 0 25px;
 	height: 31px;
 	margin-left: 70px;
+}
+.forms fieldset .btn-submit-right {
+    padding: 2px 25px 0 25px;
+	height: 31px;
+    margin-left: 0px;
 }
 .forms label {
 	display: block;

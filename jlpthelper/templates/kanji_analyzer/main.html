@@ -6,24 +6,33 @@
 
 {% block content %}
     <div id="wrapper">
+    <div class="intro">Все материалы для подготовки к JLPT на одном сайте.</div>
     <h3 class="line"> Ваш текст </h3>
-    <div class="form-container">
-      <form class="forms" action="analyze" method="post">
-        <fieldset>
-            <ol>
-                <li class="button-row">
-                  <textarea name="q" class="text-area required"></textarea>
-                  <input type="submit" value="Анализировать" name="submit" class="btn-submit">
-                </li>
-            </ol>
-        </fieldset>
-      </form>
-        <div class="response"></div>
+    <div class="one-fourth">
+        <p>Введите текст на японском языке в форму справа, после чего нажмите на кнопку "Анализировать".</p>
     </div>
-    <br>
-    <br>
-    <br>
+    <div class="three-fourth last">
+        <div class="form-container">
+        <form class="forms" action="analyze" method="post">
+            <fieldset>
+                <ol>
+                    <li class="form-row text-area-row">
+                      <textarea name="q" class="text-area required"></textarea>
+                    </li>
+                    <li class="button-row">
+                      <input type="submit" value="Анализировать" name="submit" class="btn-submit-right">
+                    </li>
+                </ol>
+            </fieldset>
+            <br>
+            <br>
+            <br>
+        </form>
+            <div class="response"></div>
+        </div>
+    </div>
         {% if q %}
             {% include "kanji_analyzer/show_results.html" %}
         {% endif %}
+    </div>
 {% endblock %}
