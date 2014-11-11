@@ -1,22 +1,22 @@
 {% extends 'index.html' %}
 
-{% load staticfiles %}
-
 {% block title %} | Kanji Analyzer{% endblock %}
 
 {% block content %}
-    <h1 align="center">Analyzed text</h1>
+    <h1>Analyze text</h1>
 
-    <form class="form" action="analyze" method="post">
-        <div id="form">
-            <dd><textarea id="textarea" name="q" rows=5 cols=30 placeholder=" Input your text in japanese here ..."></textarea>
-            <dd><input class="myButton" type="submit" value="Analyze">
-        </div>
+    {% if error %}
+        <p>{{ error }}</p>
+    {% endif %}
+    <form action="{% url 'analyze' %}" method="post">
+        <textarea name="source" placeholder="Input your text in japanese here...">{{ text }}</textarea>
+        <input type="submit" value="Analyze" />
     </form>
 
-    <div>
-        {% if q %}
-            {% include "kanji_analyzer/show_results.html" %}
-        {% endif %}
-    </div>
+    {% if results %}
+        {% for result in results|dictsort:'id' %}
+            N{{ result.id }}: {{ result.percent }}&percnt;
+            <progress max="100" value="{{ result.percent }}"></progress><br>
+        {% endfor %}
+    {% endif %}
 {% endblock %}
