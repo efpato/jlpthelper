@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from django.shortcuts import render_to_response
+
 from .core import N1, N2, N3, N4, N5
 from .core.analyzer import KanjiesText, KanjiesTextError
 
