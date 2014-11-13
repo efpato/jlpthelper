@@ -36,7 +36,7 @@
             <h1> Графическое представление результатов: </h1>
             <div id = "progress">
                 {% for result in results|dictsort:'id' %}
-                    N{{ result.id }}: {{ result.percent }}&percnt;
+                    N{{ result.id }}: {{ result.percent|floatformat:2 }}&percnt;
                     <progress max="100" value="{{ result.percent }}">N{{ result.id }}</progress><br>
                 {% endfor %}
             </div>
@@ -44,7 +44,7 @@
             <div id="list_of_kanjies">
                 <h1> Список иероглифов, встречающихся в тексте: </h1>
                 {% for result in results|dictsort:'id' %}
-                    <p>N{{ result.id }}: {{ result.value }}</p>
+                    <p>N{{ result.id }}: {{ result.value|join:' ' }}</p>
                 {% endfor %}
             </div>
         </div>
