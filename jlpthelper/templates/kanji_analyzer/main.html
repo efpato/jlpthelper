@@ -44,7 +44,7 @@
             <div id="list_of_kanjies">
                 <h1> Список иероглифов, встречающихся в тексте: </h1>
                 {% for result in results|dictsort:'id' %}
-                    <p>N{{ result.id }}: {{ result.value }}</p>
+                    <p>N{{ result.id }}: {{ result.value|join:' ' }}</p>
                 {% endfor %}
             </div>
         </div>
