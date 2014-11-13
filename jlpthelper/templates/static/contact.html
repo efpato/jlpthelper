@@ -4,44 +4,46 @@
 
 {% block content %}
     <div id="wrapper">
-    <div class="intro">Все материалы для подготовки к JLPT на одном сайте.</div>
-    <div class="container">
-      <div class="content">
-        <h2 class="line">Связь с авторами</h2>
-        <p>Если Вам что-то не хватает для подготовки к экзамену, или у вас есть предложения по улучшения работы сайта, то мы будем рады получить от вас письмо.</p>
-        <br>
-        <br>
-        <br>
-        <div class="form-container">
-          <form class="forms" action="#" method="post">
-            <fieldset>
-              <ol>
-                <li class="form-row text-input-row">
-                  <label>Имя</label>
-                  <input type="text" name="name" value="" class="text-input required">
-                </li>
-                <li class="form-row text-input-row">
-                  <label>Email</label>
-                  <input type="text" name="email" value="" class="text-input required email">
-                </li>
-                <li class="form-row text-area-row">
-                  <label>Сообщение</label>
-                  <textarea name="message" class="text-area required"></textarea>
-                </li>
-                <li class="form-row hidden-row">
-                  <input type="hidden" name="hidden" value="">
-                </li>
-                <li class="button-row">
-                  <input type="submit" value="Отправить" name="submit" class="btn-submit">
-                </li>
-              </ol>
-            </fieldset>
-          </form>
-          <div class="response"></div>
-        </div>
-      </div>
-    </div>
-    </div>
-    <div class="clear"></div>
+        <div class="container">
+            <div class="content">
+                <h2 class="line">Связь с авторами</h2>
+                <p>
+                    Если Вам что-то не хватает для подготовки к экзамену, или у вас есть предложения по улучшения работы
+                    сайта, то мы будем рады получить от вас письмо
+                </p>
+                <br>
+                <br>
+                <br>
+                <div class="form-container">
+                    <form class="forms" action="#" method="post">
+                        <fieldset>
+                            <ol>
+                                <li class="form-row text-input-row">
+                                    <label>Имя</label>
+                                    <input class="text-input required" type="text" name="name" value="">
 
+                                </li>
+                                <li class="form-row text-input-row">
+                                    <label>Email</label>
+                                    <input class="text-input required email" type="text" name="email" value="">
+                                </li>
+                                <li class="form-row text-area-row">
+                                    <label>Сообщение</label>
+                                        <textarea class="text-area required" name="message"></textarea>
+                                </li>
+                                <li class="form-row hidden-row">
+                                    <input type="hidden" name="hidden" value="">
+                                </li>
+                                <li class="button-row">
+                                    <input class="btn-submit" type="submit" value="Отправить" name="submit">
+                                </li>
+                            </ol>
+                        </fieldset>
+                    </form>
+                    <div class="response"></div>
+                </div>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
 {% endblock %}
