@@ -4,49 +4,50 @@
 
 {% block content %}
     <div id="wrapper">
-    <div class="intro">Все материалы для подготовки к JLPT на одном сайте.</div>
-    <h3 class="line"> Ваш текст </h3>
-    <div class="one-fourth">
-        <p>Введите текст на японском языке в форму справа, после чего нажмите на кнопку "Анализировать".</p>
-    </div>
-    <div class="three-fourth last">
-        <div class="form-container">
-            <form class="forms" action="{% url 'analyze' %}" method="post">
-                <fieldset>
-                    <ol>
-                        <li class="form-row text-area-row">
-                          <textarea name="source" class="text-area required">{{ text }}</textarea>
-                        </li>
-                        <li class="button-row">
-                          <input type="submit" value="Анализировать" name="submit" class="btn-submit-right">
-                        </li>
-                    </ol>
-                </fieldset>
-                <br>
-                <br>
-                <br>
-            </form>
-            <div class="response"></div>
+        <h3 class="line"> Ваш текст </h3>
+        <div class="one-fourth">
+            <p>Введите текст на японском языке в форму справа, после чего нажмите на кнопку "Анализировать"</p>
         </div>
-    </div>
+        <div class="three-fourth last">
+            <div class="form-container">
+                <form class="forms" action="{% url 'analyze' %}" method="post">
+                    <fieldset>
+                        <ol>
+                            <li class="form-row text-area-row">
+                                <textarea class="text-area required" name="source">{{ text }}</textarea>
+                            </li>
+                            <li class="button-row">
+                                <input class="btn-submit-right" type="submit" value="Анализировать" name="submit">
+                            </li>
+                        </ol>
+                    </fieldset>
+                    <br>
+                    <br>
+                    <br>
+                </form>
+                <div class="response"></div>
+            </div>
+        </div>
 
-    {% if results %}
-        <h3 class="line">Результаты разбора текста</h3>
-        <div class="last">
-            <h1> Графическое представление результатов: </h1>
-            <div id = "progress">
-                {% for result in results|dictsort:'id' %}
-                    N{{ result.id }}: {{ result.percent|floatformat:2 }}&percnt;
-                    <progress max="100" value="{{ result.percent }}">N{{ result.id }}</progress><br>
-                {% endfor %}
+        {% if results %}
+            <h3 class="line">Результаты разбора текста</h3>
+            <div class="last">
+                <h1> Графическое представление результатов: </h1>
+                <div id = "progress">
+                    {% for result in results|dictsort:'id' %}
+                        N{{ result.id }}: {{ result.percent|floatformat:2 }}&percnt;
+                        <progress max="100" value="{{ result.percent }}">N{{ result.id }}</progress><br>
+                    {% endfor %}
+                </div>
+                <br>
+                <div id="list_of_kanjies">
+                    <h1> Список иероглифов, встречающихся в тексте: </h1>
+                    {% for result in results|dictsort:'id' %}
+                        <p>N{{ result.id }}: {{ result.value|join:' ' }}</p>
+                    {% endfor %}
+                </div>
             </div>
-            <br>
-            <div id="list_of_kanjies">
-                <h1> Список иероглифов, встречающихся в тексте: </h1>
-                {% for result in results|dictsort:'id' %}
-                    <p>N{{ result.id }}: {{ result.value|join:' ' }}</p>
-                {% endfor %}
-            </div>
-        </div>
-    {% endif %}
+        {% endif %}
+        <div class="clear"></div>
+    </div>
 {% endblock %}
