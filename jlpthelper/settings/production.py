@@ -44,7 +44,9 @@ ROOT_URLCONF = 'jlpthelper.urls'
 
 WSGI_APPLICATION = 'jlpthelper.wsgi.application'
 
-DATABASES['default'] = dj_database_url.config()
+DATABASES = {
+    'default': dj_database_url.config()
+}
 
 LANGUAGE_CODE = 'en-us'
 
