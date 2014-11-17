@@ -1,5 +1,7 @@
 import os
 
+import dj_database_url
+
 PROJECT_DIR = os.path.dirname(os.path.dirname(__file__))
 
 BASE_DIR = os.path.dirname(PROJECT_DIR)
@@ -42,16 +44,7 @@ ROOT_URLCONF = 'jlpthelper.urls'
 
 WSGI_APPLICATION = 'jlpthelper.wsgi.application'
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'jlpthelper',
-        'USER': 'postgres',
-        'PASSWORD': '123',
-        'HOST': '',
-        'PORT': ''
-    }
-}
+DATABASES['default'] = dj_database_url.config()
 
 LANGUAGE_CODE = 'en-us'
 
@@ -65,7 +58,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = 'staticfiles'
 
 STATICFILES_DIRS = (
     os.path.join(PROJECT_DIR, 'assets'),
