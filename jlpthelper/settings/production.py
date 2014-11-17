@@ -11,7 +11,7 @@ SECRET_KEY = 'xejs&+h_@t4qa$8ger2$@(00a3c-#8y^%)@ex0&2rc5r8$-e%n'
 DEBUG = TEMPLATE_DEBUG = False
 
 TEMPLATE_DIRS = (
-    os.path.pardir(os.path.join(PROJECT_DIR, 'templates')),
+    os.path.join(PROJECT_DIR, 'templates'),
 )
 
 TEMPLATE_LOADERS = (
