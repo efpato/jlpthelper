@@ -8,6 +8,13 @@ SECRET_KEY = 'xejs&+h_@t4qa$8ger2$@(00a3c-#8y^%)@ex0&2rc5r8$-e%n'
 
 DEBUG = TEMPLATE_DEBUG = True
 
+ADMINS = (
+    ('Anton', 'antonerjomin@gmail.com'),
+    ('Sergey', 'sergey.demenok@gmail.com'),
+)
+
+MANAGERS = ADMINS
+
 TEMPLATE_DIRS = (
     os.path.join(PROJECT_DIR, 'templates'),
 )
@@ -64,3 +71,13 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(PROJECT_DIR, 'assets'),
 )
+
+EMAIL_USE_TLS = True
+
+EMAIL_HOST = 'smtp.gmail.com'
+
+EMAIL_HOST_PORT = 587
+
+EMAIL_HOST_USER = 'jlpthelper@gmail.com'
+
+EMAIL_HOST_PASSWORD = 'japanesestudy'
