@@ -8,28 +8,19 @@
             <div class="content">
                 <h2 class="line">Связь с авторами</h2>
                 <p>
-                    Если Вам что-то не хватает для подготовки к экзамену, или у вас есть предложения по улучшения работы
-                    сайта, то мы будем рады получить от вас письмо
+                    Мы будем рады получить предложения по улучшению сайта или расширению имеющихся материалов
+                    для подготовки к экзамену
                 </p>
                 <br>
-                <br>
-                <br>
+                {% if error %}
+                    <p>{{ error }}</p>
+                {% endif %}
                 <div class="form-container">
-                    <form class="forms" action="#" method="post">
+                    <form class="forms" action="{% url 'feedback' %}" method="post">
                         <fieldset>
                             <ol>
-                                <li class="form-row text-input-row">
-                                    <label>Имя</label>
-                                    <input class="text-input required" type="text" name="name" value="">
-
-                                </li>
-                                <li class="form-row text-input-row">
-                                    <label>Email</label>
-                                    <input class="text-input required email" type="text" name="email" value="">
-                                </li>
                                 <li class="form-row text-area-row">
-                                    <label>Сообщение</label>
-                                        <textarea class="text-area required" name="message"></textarea>
+                                    <textarea class="text-area required" name="message"></textarea>
                                 </li>
                                 <li class="form-row hidden-row">
                                     <input type="hidden" name="hidden" value="">
@@ -41,6 +32,9 @@
                         </fieldset>
                     </form>
                     <div class="response"></div>
+                    {% if status %}
+                        <p>{{ status }}</p>
+                    {% endif %}
                 </div>
             </div>
         </div>

@@ -8,6 +8,6 @@ from . import views
 urlpatterns = patterns(
     '',
     url(r'^$', views.home, name='home'),
-    url(r'^contact/$', views.contact, name='contact'),
+    url(r'^feedback/$', views.feedback, name='feedback'),
     url(r'^kanji_analyzer/$', include('jlpthelper.apps.kanji_analyzer.urls')),
 )
