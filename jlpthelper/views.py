@@ -17,7 +17,7 @@ def feedback(request):
             mail_managers(
                 subject='Feedback',
                 message=message,
-                fail_silently=False)
+                fail_silently=True)
             status = 'Ваше сообщение отправлено. Спасибо!'
         else:
             error = 'Сообщение не может быть пустым'
