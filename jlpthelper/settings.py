@@ -1,14 +1,19 @@
 import os
 
-import dj_database_url
-
 PROJECT_DIR = os.path.dirname(os.path.dirname(__file__))
 
 BASE_DIR = os.path.dirname(PROJECT_DIR)
 
 SECRET_KEY = 'xejs&+h_@t4qa$8ger2$@(00a3c-#8y^%)@ex0&2rc5r8$-e%n'
 
-DEBUG = TEMPLATE_DEBUG = False
+DEBUG = TEMPLATE_DEBUG = os.getenv('JLPT_DEV') is not None
+
+ADMINS = (
+    ('Anton', 'antonerjomin@gmail.com'),
+    ('Sergey', 'sergey.demenok@gmail.com'),
+)
+
+MANAGERS = ADMINS
 
 TEMPLATE_DIRS = (
     os.path.join(PROJECT_DIR, 'templates'),
@@ -44,9 +49,18 @@ ROOT_URLCONF = 'jlpthelper.urls'
 
 WSGI_APPLICATION = 'jlpthelper.wsgi.application'
 
-DATABASES = {
-    'default': dj_database_url.config()
-}
+if DEBUG:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
+    }
+else:
+    import dj_database_url
+    DATABASES = {
+        'default': dj_database_url.config()
+    }
 
 LANGUAGE_CODE = 'en-us'
 
@@ -65,3 +79,13 @@ STATIC_ROOT = 'staticfiles'
 STATICFILES_DIRS = (
     os.path.join(PROJECT_DIR, 'assets'),
 )
+
+EMAIL_USE_TLS = True
+
+EMAIL_HOST = 'smtp.gmail.com'
+
+EMAIL_HOST_PORT = 587
+
+EMAIL_HOST_USER = 'jlpthelper@gmail.com'
+
+EMAIL_HOST_PASSWORD = 'japanesestudy'
