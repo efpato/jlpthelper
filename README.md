@@ -14,7 +14,7 @@ Web service for JLPT preparing.
 $ git clone git@github.com:OdinO4ka/jlpthelper.git
 $ cd jlpthelper
 $ pip install -r requirements/development
-$ export JLPT_ENV='development'
+$ export JLPT_DEV=1
 $ ./manage syncdb
 $ ./manage runserver
 ```
