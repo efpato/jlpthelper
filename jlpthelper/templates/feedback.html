@@ -1,0 +1,43 @@
+{% extends 'index.html' %}
+
+{% block title %} | Contact{% endblock %}
+
+{% block content %}
+    <div id="wrapper">
+        <div class="container">
+            <div class="content">
+                <h2 class="line">Связь с авторами</h2>
+                <p>
+                    Мы будем рады получить предложения по улучшению сайта или расширению имеющихся материалов
+                    для подготовки к экзамену
+                </p>
+                <br>
+                {% if error %}
+                    <p>{{ error }}</p>
+                {% endif %}
+                <div class="form-container">
+                    <form class="forms" action="{% url 'feedback' %}" method="post">
+                        <fieldset>
+                            <ol>
+                                <li class="form-row text-area-row">
+                                    <textarea class="text-area required" name="message"></textarea>
+                                </li>
+                                <li class="form-row hidden-row">
+                                    <input type="hidden" name="hidden" value="">
+                                </li>
+                                <li class="button-row">
+                                    <input class="btn-submit" type="submit" value="Отправить" name="submit">
+                                </li>
+                            </ol>
+                        </fieldset>
+                    </form>
+                    <div class="response"></div>
+                    {% if status %}
+                        <p>{{ status }}</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+{% endblock %}

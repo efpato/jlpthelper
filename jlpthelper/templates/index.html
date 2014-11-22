@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+{% block content %}
+    <div id="showcase" class="showcase">
+        <div class="showcase-slide">
+            <div class="showcase-content">
+                <a href="{% url 'home' %}"><img src="{% static 'style/images/art/s1-new.jpg' %}" alt=""></a>
+            </div>
+        </div>
+        <div class="showcase-slide">
+            <div class="showcase-content">
+                <a href="{% url 'analyze' %}"><img src="{% static 'style/images/art/s2-new.jpg' %}" alt=""></a>
+            </div>
+            <div class="showcase-caption">Приложение для анализа сложности текста</div>
+        </div>
+    </div>
+    <div id="wrapper">
+        <div class="intro">Все материалы для подготовки к JLPT на одном сайте</div>
+        <div class="two-third">
+            <h3 class="line">Приложения</h3>
+            <a href="{% url 'analyze' %}">
+                <img class="left" src="{% static 'style/images/icon-1.png' %}" alt="">
+            </a>
+            <h4><a href="{% url 'analyze' %}">Kanji analyzer</a></h4>
+            <p>Приложение, помогающее оценить сложность текста.</p>
+            <div class="clear"></div>
+        </div>
+        <div class="one-third last">
+            <h3 class="line">Последние сообщения</h3>
+            <ul class="latest-posts">
+                <li>
+                    <span class="date"><em class="day">8</em><em class="month">Nov</em></span>
+                    <h5>Материалы для подготовки</h5>
+                    <p>
+                        Материалы для подготовки к различным уровня <a class="more" href="#">Продолжить &rarr;</a>
+                    </p>
+                </li>
+            </ul>
+        </div>
+        <div class="clear"></div>
+    </div>
+{% endblock %}

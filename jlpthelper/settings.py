@@ -1,21 +1,22 @@
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
-BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
+PROJECT_DIR = os.path.dirname(__file__)
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
+BASE_DIR = os.path.dirname(PROJECT_DIR)
 
-# SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'xejs&+h_@t4qa$8ger2$@(00a3c-#8y^%)@ex0&2rc5r8$-e%n'
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = TEMPLATE_DEBUG = os.getenv('JLPT_DEV') is not None
 
-TEMPLATE_DEBUG = True
+ADMINS = (
+    ('Anton', 'antonerjomin@gmail.com'),
+    ('Sergey', 'sergey.demenok@gmail.com'),
+)
+
+MANAGERS = ADMINS
 
 TEMPLATE_DIRS = (
-    BASE_DIR + '/templates/',
+    os.path.join(PROJECT_DIR, 'templates'),
 )
 
 TEMPLATE_LOADERS = (
@@ -23,14 +24,7 @@ TEMPLATE_LOADERS = (
     'django.template.loaders.app_directories.Loader',
 )
 
-ALLOWED_HOSTS = []
-
-# Application definition
-
-AUTHENTICATION_BACKENDS = (
-    ('django.contrib.auth.backends.ModelBackend'),
-)
-
+ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = (
     'django.contrib.auth',
@@ -39,55 +33,38 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django.contrib.admin',
-    'django.contrib.admindocs',
-    'home',
-    'kanji_analyzer',
-    'site_auth',
+    'jlpthelper.apps.kanji_analyzer',
 )
 
 MIDDLEWARE_CLASSES = (
-    'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-AUTH_PROFILE_MODULE = 'accounts.UserProfile'
-
-
 ROOT_URLCONF = 'jlpthelper.urls'
 
 WSGI_APPLICATION = 'jlpthelper.wsgi.application'
 
-
-# Database
-# https://docs.djangoproject.com/en/1.7/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-    'ENGINE': 'django.db.backends.postgresql_psycopg2',
-    'NAME': 'jlpthelper',
-    'USER': 'postgres',
-    'PASSWORD': '123',
-    'HOST': 'localhost', # Set to empty string for localhost.
-    'PORT': '',
+if DEBUG:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
     }
-}
-
-# Internationalization
-# https://docs.djangoproject.com/en/1.7/topics/i18n/
+else:
+    import dj_database_url
+    DATABASES = {
+        'default': dj_database_url.config()
+    }
 
 LANGUAGE_CODE = 'en-us'
 
-LOGIN_URL = '/site_auth/login/'
-
 TIME_ZONE = 'UTC'
-
-SITE_ID = 1
 
 USE_I18N = True
 
@@ -95,11 +72,20 @@ USE_L10N = True
 
 USE_TZ = True
 
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.7/howto/images-files/
-
 STATIC_URL = '/static/'
+
+STATIC_ROOT = 'staticfiles'
+
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, "static"),
+    os.path.join(PROJECT_DIR, 'assets'),
 )
+
+EMAIL_USE_TLS = True
+
+EMAIL_HOST = 'smtp.gmail.com'
+
+EMAIL_HOST_PORT = 587
+
+EMAIL_HOST_USER = 'jlpthelper@gmail.com'
+
+EMAIL_HOST_PASSWORD = 'japanesestudy'
