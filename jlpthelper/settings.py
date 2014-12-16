@@ -1,5 +1,6 @@
 import os
 
+
 PROJECT_DIR = os.path.dirname(__file__)
 
 BASE_DIR = os.path.dirname(PROJECT_DIR)
@@ -27,22 +28,22 @@ TEMPLATE_LOADERS = (
 ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = (
+    'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.sites',
     'django.contrib.messages',
+    'django.contrib.sessions',
     'django.contrib.staticfiles',
     'jlpthelper.apps.kanji_analyzer',
+    'jlpthelper.apps.tests',
 )
 
 MIDDLEWARE_CLASSES = (
-    'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.common.CommonMiddleware',
 )
 
 ROOT_URLCONF = 'jlpthelper.urls'
@@ -74,7 +75,11 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+MEDIA_URL = '/media/'
+
 STATIC_ROOT = 'staticfiles'
+
+MEDIA_ROOT = 'media'
 
 STATICFILES_DIRS = (
     os.path.join(PROJECT_DIR, 'assets'),

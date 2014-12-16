@@ -1,0 +1,13 @@
+{% extends 'index.html' %}
+
+{% block title %} | JLPT Tests{% endblock %}
+
+{% block content %}
+    {% for test in tests %}
+        Level: {{ test.level }}<br/>
+        Description: {{ test.description }}<br/>
+        Question: {{ test.question }}<br/>
+        Image: <image src="{{ test.image.url }}" alt="manual" style="width: 150px;height: 100px"></image><br/>
+        Audio: <audio controls><source src="{{ test.audio.url }}" type="audio/mpeg"></audio>
+    {% endfor %}
+{% endblock %}
